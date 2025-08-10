@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilagos - Negócios & Tecnologia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0E0105;
+            --secondary: #1D1733;
+            --accent: #A21642;
+            --gray-medium: #ACACAC;
+            --gray-light: #DEDEDE;
+            --gray-lighter: #F4F4F4;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--accent), #d41f5a);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(162, 22, 66, 0.3);
+        }
+
+        /* Hero Section com Slideshow */
+        .hero {
+            background: linear-gradient(135deg, rgba(14, 1, 5, 0.8) 0%, rgba(29, 23, 51, 0.8) 50%, rgba(162, 22, 66, 0.8) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+        }
+
+        /* Slideshow Background */
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        /* Imagens do slideshow - ALTERE AS URLS AQUI */
+        .hero-slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80');
+        }
+
+        .hero-slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        .hero-slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1486312338219-ce68e2c6b81d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1rem auto;
+        }
+
+        /* Services */
+        .services {
+            background: var(--gray-lighter);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--accent), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            color: var(--gray-medium);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Segments */
+        .segments {
+            background: white;
+        }
+
+        .segments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .segment-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--gray-lighter);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .segment-item:hover {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background: var(--gray-lighter);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--gray-lighter);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+
+        .testimonial-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent), var(--secondary));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .testimonial-name {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-top: 1rem;
+        }
+
+        .testimonial-position {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            padding: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .segments-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 5rem;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .appointment-section {
+            padding: 5rem 0;
+            background: var(--gray-lighter);
+        }
+
+        .appointment-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .appointment-iframe {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .back-button {
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Partners Section */
+        .partners {
+            background: var(--gray-lighter);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .partners-title {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: 80px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Placeholder para logos - remova quando adicionar logos reais */
+        .partner-placeholder {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* ESG/Sustainability highlight - ALTERE A COR AQUI */
+        .sustainability-highlight {
+            /* 🎨 PARA ALTERAR A COR DE FUNDO, MODIFIQUE A LINHA ABAIXO: */
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            /* Exemplos de outras opções de cor:
+               background: linear-gradient(135deg, #2E7D32, #43A047); // Verde
+               background: linear-gradient(135deg, #1565C0, #0D47A1); // Azul
+               background: linear-gradient(135deg, #F57C00, #E65100); // Laranja
+               background: var(--secondary); // Cor sólida
+            */
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sustainability-highlight::before {
+            content: '🌱';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            font-size: 6rem;
+            opacity: 0.2;
+            transform: translateY(-50%);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Multi<span>lagos</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#segments">Segmentos</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Depoimentos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <a href="#" onclick="showAppointmentPage()" class="cta-button">Agendar Consultoria</a>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="page active">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Slideshow Background -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Multilagos</h1>
+            <p class="subtitle">Negócios & Tecnologia</p>
+            <p class="hero-description">
+                Transformamos empresas através da digitalização inteligente e reestruturação financeira, 
+                impulsionando crescimento sustentável e competitividade no mercado.
+            </p>
+            <a href="#" onclick="showAppointmentPage()" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                Transforme seu Negócio Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Sustainability Highlight -->
+    <section class="sustainability-highlight">
+        <div class="container">
+            <div class="sustainability-content">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Transformação Digital Sustentável</h2>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                    Nossa abordagem de transformação digital não apenas otimiza processos e reduz custos, 
+                    mas também contribui para a sustentabilidade do seu negócio, reduzindo desperdícios, 
+                    automatizando tarefas e promovendo eficiência energética.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Consultoria de Transformação Digital</h3>
+                    <p>Revolucionamos sua empresa com tecnologia de ponta e processos otimizados.</p>
+                    <ul class="service-features">
+                        <li>Planejamento Estratégico Digital</li>
+                        <li>Digitalização e Automação de Processos</li>
+                        <li>Integração de Sistemas</li>
+                        <li>Atualização do Modelo de Negócio</li>
+                        <li>Implementação de Tecnologias Emergentes</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Consultoria de Transformação Financeira</h3>
+                    <p>Reestruturamos e otimizamos toda a gestão financeira da sua empresa.</p>
+                    <ul class="service-features">
+                        <li>Implantação de Sistema ERP</li>
+                        <li>Reestruturação da Área Financeira</li>
+                        <li>Construção da Área Financeira do Zero</li>
+                        <li>FP&A (Financial Planning & Analysis)</li>
+                        <li>BPO Financeiro</li>
+                        <li>DRE e Fluxo de Caixa</li>
+                        <li>Contas a Pagar e Receber</li>
+                        <li>Conciliação Bancária</li>
+                        <li>Integração entre Sistemas</li>
+                        <li>Sistemas de Pagamentos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segments Section -->
+    <section id="segments" class="section segments">
+        <div class="container">
+            <h2 class="section-title">Segmentos que Atendemos</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--gray-medium);">
+                Especializados em empresas de serviços com soluções personalizadas
+            </p>
+            <div class="segments-grid">
+                <div class="segment-item">🏨 Hotelaria</div>
+                <div class="segment-item">🏢 Condomínios</div>
+                <div class="segment-item">💪 Academias</div>
+                <div class="segment-item">🏥 Clínicas Médicas</div>
+                <div class="segment-item">🦷 Odontológicas</div>
+                <div class="segment-item">🏃‍♀️ Fisioterapia</div>
+                <div class="segment-item">🧘‍♀️ Pilates</div>
+                <div class="segment-item">🎓 Escolas</div>
+                <div class="segment-item">🏛️ Faculdades</div>
+                <div class="segment-item">✨ Clínicas de Estética</div>
+                <div class="segment-item">⚽ Clubes</div>
+                <div class="segment-item">📊 Escritórios</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio de Sucessos</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        🏨 Rede Hoteleira Premium
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Transformação Digital Hoteleira</h3>
+                        <p>Implementação completa de sistema de gestão hoteleira com automação de processos e integração de canais de venda, resultando em 40% de aumento na eficiência operacional.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        🏥 Clínica Médica Integrada
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Reestruturação Financeira Médica</h3>
+                        <p>Construção completa da área financeira com implantação de ERP especializado, controle de fluxo de caixa e integração com convênios médicos.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        🎓 Instituto Educacional
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Digitalização Educacional</h3>
+                        <p>Transformação digital completa com plataforma de ensino online, gestão acadêmica automatizada e sistema financeiro integrado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">O que Nossos Clientes Dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-photo">MR</div>
+                    <p>A Multilagos transformou completamente nossa gestão financeira. Implementaram um sistema ERP que revolucionou nossa operação e aumentou nossa margem de lucro em 35%.</p>
+                    <div class="testimonial-name">Maria Regina</div>
+                    <div class="testimonial-position">Diretora - Clínica Vida & Saúde</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-photo">JS</div>
+                    <p>Excelente trabalho na digitalização dos nossos processos. A automação implementada nos fez economizar 60% do tempo gasto em tarefas administrativas.</p>
+                    <div class="testimonial-name">João Silva</div>
+                    <div class="testimonial-position">Proprietário - Academia FitMax</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-photo">CF</div>
+                    <p>Profissionais altamente capacitados! A reestruturação financeira que fizeram em nosso hotel resultou em uma gestão muito mais eficiente e lucrativa.</p>
+                    <div class="testimonial-name">Carlos Ferreira</div>
+                    <div class="testimonial-position">Gerente Geral - Hotel Costa Verde</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/CTA Section -->
+    <section id="contact" class="section" style="background: linear-gradient(135deg, var(--accent), var(--secondary)); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 2rem;">
+                Pronto para Transformar seu Negócio?
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">
+                Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua empresa
+            </p>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#" onclick="showAppointmentPage()" class="cta-button" style="background: white; color: var(--accent); font-size: 1.1rem; padding: 1rem 2rem;">
+                    📅 Agendar Consultoria
+                </a>
+                <a href="tel:+5522999999999" class="cta-button" style="background: transparent; border: 2px solid white; font-size: 1.1rem; padding: 1rem 2rem;">
+                    📞 Ligar Agora
+                </a>
+                <a href="https://wa.me/5522999999999" class="cta-button" style="background: #25D366; border: none; font-size: 1.1rem; padding: 1rem 2rem;">
+                    💬 WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <h3 class="partners-title">Nossos Parceiros</h3>
+            <div class="partners-grid">
+                <!-- Substitua os placeholders pelas imagens reais dos parceiros -->
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Logo<br>Parceiro 1</div>
+                    <!-- <img src="caminho/para/logo1.png" alt="Parceiro 1"> -->
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Logo<br>Parceiro 2</div>
+                    <!-- <img src="caminho/para/logo2.png" alt="Parceiro 2"> -->
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Logo<br>Parceiro 3</div>
+                    <!-- <img src="caminho/para/logo3.png" alt="Parceiro 3"> -->
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Logo<br>Parceiro 4</div>
+                    <!-- <img src="caminho/para/logo4.png" alt="Parceiro 4"> -->
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Logo<br>Parceiro 5</div>
+                    <!-- <img src="caminho/para/logo5.png" alt="Parceiro 5"> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Multilagos</h3>
+                    <p>Negócios & Tecnologia</p>
+                    <p style="opacity: 0.8; margin-top: 1rem;">
+                        Transformando empresas através da inovação digital e excelência financeira.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul class="contact-info">
+                        <li>📧 contato@multilagos.com</li>
+                        <li>📱 (22) 99999-9999</li>
+                        <li>📍 Cabo Frio, RJ</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Serviços</h3>
+                    <ul class="contact-info">
+                        <li>Transformação Digital</li>
+                        <li>Transformação Financeira</li>
+                        <li>Consultoria Estratégica</li>
+                        <li>Implementação de ERP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2025 Multilagos - Negócios & Tecnologia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <!-- Appointment Page -->
+    <div id="appointmentPage" class="page">
+        <section class="appointment-section">
+            <div class="appointment-container">
+                <button onclick="showMainPage()" class="back-button">← Voltar</button>
+                <h1 style="color: var(--secondary); margin-bottom: 1rem;">Agende sua Consultoria Gratuita</h1>
+                <p style="font-size: 1.1rem; color: var(--gray-medium); margin-bottom: 2rem;">
+                    Escolha o melhor horário para conversarmos sobre a transformação do seu negócio
+                </p>
+                <div class="appointment-iframe">
+                    <!-- Google Calendar Appointment Scheduling begin -->
+                    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2-5TixNWAThOkJmFXje9fg_usgcMYhtgSDB1xZ-sX-xXByAfA2r5--XBiSdHMMMJJipMfq4v0E?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                    <!-- end Google Calendar Appointment Scheduling -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Slideshow Hero Background
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const totalSlides = slides.length;
+
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Inicia o slideshow
+        if (slides.length > 1) {
+            setInterval(showNextSlide, 5000); // Muda a cada 5 segundos
+        }
+
+        // Page navigation functions
+        function showMainPage() {
+            document.getElementById('mainContent').classList.add('active');
+            document.getElementById('appointmentPage').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showAppointmentPage() {
+            document.getElementById('mainContent').classList.remove('active');
+            document.getElementById('appointmentPage').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#' || this.onclick) {
+                    return; // Don't prevent default for onclick handlers
+                }
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(14, 1, 5, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .portfolio-item, .testimonial, .segment-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
