@@ -51,10 +51,11 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
+            color: var(--accent); /* Multilagos todo na cor A21642 */
         }
 
         .logo span {
-            color: var(--accent);
+            color: var(--accent); /* Removido diferenciação de cor */
         }
 
         .nav-links {
@@ -449,11 +450,12 @@
             }
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu Styles */
         .mobile-menu {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            z-index: 1001;
         }
 
         .mobile-menu span {
@@ -464,7 +466,53 @@
             transition: 0.3s;
         }
 
-        /* Responsive */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            z-index: 1000;
+            transition: left 0.3s ease;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav-links li {
+            margin: 2rem 0;
+        }
+
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-cta {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* Responsive - Análise Completa para Mobile */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -474,16 +522,485 @@
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            /* Hero Responsivo */
+            .hero {
+                padding: 6rem 0 4rem;
+                min-height: 70vh;
             }
 
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            /* Botões responsivos para mobile */
+            .cta-button {
+                padding: 0.7rem 1.3rem;
+                font-size: 0.95rem;
+                white-space: nowrap;
+            }
+
+            .hero .cta-button {
+                padding: 0.8rem 1.6rem !important;
+                font-size: 1rem !important;
+            }
+
+            /* Seções com padding otimizado */
+            .section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Cards e grids otimizados */
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
             }
 
             .segments-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .segment-item {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            /* Portfolio otimizado */
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Testimonials otimizados */
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+
+            /* ESG section responsiva */
+            .sustainability-highlight div[style*="grid"] {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            /* Parceiros responsivos */
+            .partners-grid {
+                gap: 1.5rem;
+                justify-content: center;
+            }
+
+            .partner-logo {
+                width: 100px;
+                height: 70px;
+            }
+
+            /* Footer otimizado */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            /* Seção de contato responsiva */
+            #contact .container > div[style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 1rem !important;
+                align-items: center !important;
+                padding: 0 1rem;
+            }
+
+            #contact .cta-button {
+                padding: 0.8rem 1.5rem !important;
+                font-size: 1rem !important;
+                margin: 0.5rem 0 !important;
+                min-width: 200px;
+            }
+        }
+
+        /* Mobile pequeno (480px) */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 5rem 0 3rem;
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .hero .cta-button {
+                padding: 0.7rem 1.4rem !important;
+                font-size: 0.95rem !important;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            /* ESG em uma coluna */
+            .sustainability-highlight div[style*="grid"] {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .segments-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 1rem;
+            }
+
+            .segment-item {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            #contact .cta-button {
+                padding: 0.7rem 1.3rem !important;
+                font-size: 0.95rem !important;
+                min-width: 180px;
+            }
+        }
+
+        /* Telas extra pequenas (320px) - Otimização máxima */
+        @media (max-width: 320px) {
+            /* Header compacto */
+            .header {
+                padding: 0.8rem 0;
+            }
+
+            .nav {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            /* Hero ultra-compacto */
+            .hero {
+                padding: 4rem 0 3rem;
+                min-height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+                line-height: 1.1;
+            }
+
+            .hero .subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-description {
+                font-size: 0.85rem;
+                padding: 0 0.5rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.4;
+            }
+
+            /* Botões ultra-compactos */
+            .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+                border-radius: 18px;
+            }
+
+            .hero .cta-button {
+                padding: 0.6rem 1.2rem !important;
+                font-size: 0.9rem !important;
+            }
+
+            /* Container e seções */
+            .container {
+                padding: 0 0.8rem;
+            }
+
+            .section {
+                padding: 2.5rem 0;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Cards ultra-compactos */
+            .service-card {
+                padding: 1.2rem 1rem;
+                margin: 0;
+            }
+
+            .service-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .service-card p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            .service-features {
+                margin-top: 0.8rem;
+            }
+
+            .service-features li {
+                font-size: 0.8rem;
+                padding: 0.2rem 0;
+            }
+
+            /* Segmentos compactos */
+            .segments-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .segment-item {
+                padding: 0.6rem 0.3rem;
+                font-size: 0.75rem;
+                border-radius: 8px;
+            }
+
+            /* Portfolio compacto */
+            .portfolio-image {
+                height: 120px;
+                font-size: 0.9rem;
+            }
+
+            .portfolio-content {
+                padding: 1rem;
+            }
+
+            .portfolio-content h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .portfolio-content p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+
+            /* Testimonials compactos */
+            .testimonial {
+                padding: 1.2rem 1rem;
+            }
+
+            .testimonial-photo {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+
+            .testimonial p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+
+            .testimonial-name {
+                font-size: 0.9rem;
+                margin-top: 0.8rem;
+            }
+
+            .testimonial-position {
+                font-size: 0.75rem;
+            }
+
+            /* ESG ultra-compacto */
+            .sustainability-highlight {
+                padding: 2rem 0;
+            }
+
+            .sustainability-highlight h2 {
+                font-size: 1.4rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .sustainability-highlight div[style*="font-size: 3rem"] {
+                font-size: 2rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .sustainability-highlight h3 {
+                font-size: 1rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .sustainability-highlight p {
+                font-size: 0.8rem !important;
+                line-height: 1.3 !important;
+            }
+
+            /* Parceiros ultra-compactos */
+            .partners {
+                padding: 2rem 0;
+            }
+
+            .partners-title {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .partners-grid {
+                gap: 0.8rem;
+            }
+
+            .partner-logo {
+                width: 70px;
+                height: 45px;
+            }
+
+            .partner-placeholder {
+                font-size: 0.7rem;
+                line-height: 1.1;
+            }
+
+            /* Contato ultra-compacto */
+            #contact {
+                padding: 3rem 0 !important;
+            }
+
+            #contact h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            #contact p {
+                font-size: 1rem !important;
+                margin-bottom: 2rem !important;
+                padding: 0 0.5rem;
+            }
+
+            #contact .cta-button {
+                padding: 0.6rem 1rem !important;
+                font-size: 0.85rem !important;
+                min-width: 150px;
+                margin: 0.3rem 0 !important;
+            }
+
+            /* Footer ultra-compacto */
+            .footer {
+                padding: 2rem 0 1rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .footer-section p,
+            .contact-info li {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            /* Página de agendamento */
+            .appointment-section {
+                padding: 3rem 0;
+            }
+
+            .appointment-container {
+                padding: 0 0.8rem;
+            }
+
+            .appointment-container h1 {
+                font-size: 1.6rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .appointment-container p {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .back-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .appointment-iframe {
+                padding: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            /* Menu mobile otimizado */
+            .mobile-nav {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .mobile-nav-links a {
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+            }
+
+            .mobile-cta {
+                margin-top: 2rem;
+            }
+
+            .mobile-cta .cta-button {
+                padding: 0.6rem 1.2rem !important;
+                font-size: 0.9rem !important;
             }
         }
 
@@ -628,7 +1145,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">Multi<span>lagos</span></div>
+            <div class="logo">Multilagos</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Serviços</a></li>
