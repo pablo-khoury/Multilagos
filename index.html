@@ -51,11 +51,15 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--accent); /* Multilagos todo na cor A21642 */
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .logo span {
-            color: var(--accent); /* Removido diferenciação de cor */
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -74,8 +78,6 @@
             color: var(--accent);
         }
 
-        
-
         .cta-button {
             background: linear-gradient(45deg, var(--accent), #d41f5a);
             color: white;
@@ -88,13 +90,84 @@
             cursor: pointer;
         }
 
-
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(162, 22, 66, 0.3);
         }
 
-        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            z-index: 1000;
+            transition: left 0.3s ease;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav-links li {
+            margin: 2rem 0;
+        }
+
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-cta {
+            margin-top: 3rem;
+            text-align: center;
+        }
 
         /* Hero Section com Slideshow */
         .hero {
@@ -134,7 +207,7 @@
             opacity: 1;
         }
 
-        /* Imagens do slideshow - ALTERE AS URLS AQUI */
+        /* Imagens do slideshow */
         .hero-slide:nth-child(1) {
             background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80');
         }
@@ -297,23 +370,55 @@
 
         .segments-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .segment-item {
-            text-align: center;
-            padding: 1.5rem;
+        .segment-category {
             background: var(--gray-lighter);
-            border-radius: 10px;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--accent);
+        }
+
+        .segment-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .segment-category h3 {
+            color: var(--secondary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .segment-category-icon {
+            font-size: 1.8rem;
+        }
+
+        .segment-subcategories {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .segment-subcategories li {
+            background: white;
+            margin: 0.5rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: var(--gray-medium);
             transition: all 0.3s ease;
         }
 
-        .segment-item:hover {
+        .segment-subcategories li:hover {
             background: var(--accent);
             color: white;
-            transform: scale(1.05);
         }
 
         /* Portfolio */
@@ -455,568 +560,6 @@
             }
         }
 
-        /* Mobile Menu Styles */
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            z-index: 1000;
-            transition: left 0.3s ease;
-            padding: 6rem 2rem 2rem;
-        }
-
-        .mobile-nav.active {
-            left: 0;
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-nav-links li {
-            margin: 2rem 0;
-        }
-
-        .mobile-nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: block;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            transition: color 0.3s ease;
-        }
-
-        .mobile-nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .mobile-cta {
-            margin-top: 3rem;
-            text-align: center;
-        }
-
-        /* Responsive - Análise Completa para Mobile */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            /* Hero Responsivo */
-            .hero {
-                padding: 6rem 0 4rem;
-                min-height: 70vh;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-                line-height: 1.2;
-                margin-bottom: 0.8rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-                padding: 0 1rem;
-            }
-
-            /* Botões responsivos para mobile */
-            
-            .cta-button {
-                padding: 0.7rem 1.3rem;
-                font-size: 0.95rem;
-                white-space: nowrap;
-            }
-
-            .hero .cta-button {
-                padding: 0.8rem 1.6rem !important;
-                font-size: 1rem !important;
-            }
-            
-
-            /* Seções com padding otimizado */
-            .section {
-                padding: 3rem 0;
-            }
-
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-
-            /* Cards e grids otimizados */
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .service-card {
-                padding: 1.5rem;
-                margin: 0 0.5rem;
-            }
-
-            .segments-grid {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: 1.5rem;
-            }
-
-            .segment-item {
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
-
-            /* Portfolio otimizado */
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            /* Testimonials otimizados */
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .testimonial {
-                padding: 1.5rem;
-                margin: 0 0.5rem;
-            }
-
-            /* ESG section responsiva */
-            .sustainability-highlight div[style*="grid"] {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 1.5rem !important;
-            }
-
-            /* Parceiros responsivos */
-            .partners-grid {
-                gap: 1.5rem;
-                justify-content: center;
-            }
-
-            .partner-logo {
-                width: 100px;
-                height: 70px;
-            }
-
-            /* Footer otimizado */
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            /* Seção de contato responsiva */
-            #contact .container > div[style*="display: flex"] {
-                flex-direction: column !important;
-                gap: 1rem !important;
-                align-items: center !important;
-                padding: 0 1rem;
-            }
-
-            #contact .cta-button {
-                padding: 0.8rem 1.5rem !important;
-                font-size: 1rem !important;
-                margin: 0.5rem 0 !important;
-                min-width: 200px;
-            }
-        }
-
-        /* Mobile pequeno (480px) */
-        @media (max-width: 480px) {
-            .hero {
-                padding: 5rem 0 3rem;
-                min-height: 60vh;
-            }
-
-            .hero h1 {
-                font-size: 1.9rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-description {
-                font-size: 0.95rem;
-            }
-        
-            .cta-button {
-                padding: 0.3rem 1.0rem; /*0,6  1,2*/
-              font-size: 0.7rem; /*0,9*/ 
-            }
-
-            .hero .cta-button {
-                padding: 0.5rem 1.4rem !important;/*0,7*/
-                font-size: 0.75rem !important;/*0,95*/
-            } 
-            
-
-        
-            .container {
-                padding: 0 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            /* ESG em uma coluna */
-            .sustainability-highlight div[style*="grid"] {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
-            }
-
-            .segments-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 1rem;
-            }
-
-            .segment-item {
-                padding: 0.8rem 0.5rem;
-                font-size: 0.85rem;
-            }
-
-            #contact .cta-button {
-                padding: 0.5rem 1.0rem !important;/*0,7  1,3*/
-                font-size: 0.75rem !important; /*0,95*/
-                min-width: 130px; /*180*/
-            }
-        }
-
-        /* Telas extra pequenas (320px) - Otimização máxima */
-        @media (max-width: 320px) {
-            /* Header compacto */
-            .header {
-                padding: 0.8rem 0;
-            }
-
-            .nav {
-                padding: 0 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            /* Hero ultra-compacto */
-            .hero {
-                padding: 4rem 0 3rem;
-                min-height: 50vh;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-                line-height: 1.1;
-            }
-
-            .hero .subtitle {
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-description {
-                font-size: 0.85rem;
-                padding: 0 0.5rem;
-                margin-bottom: 1.5rem;
-                line-height: 1.4;
-            }
-
-            /* Botões ultra-compactos */
-
-            
-            .cta-button {
-                padding: 0.3rem 1rem; /*5*/
-                font-size: 0.60rem; /*0,85*/
-                border-radius: 18px;
-            }    
-
-
-            .hero .cta-button {
-                padding: 0.3rem 1.2rem !important; /*0,6*/
-                font-size: 0.9rem !important;
-            }
-            
-
-            /* Container e seções */
-            .container {
-                padding: 0 0.8rem;
-            }
-
-            .section {
-                padding: 2.5rem 0;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            /* Cards ultra-compactos */
-            .service-card {
-                padding: 1.2rem 1rem;
-                margin: 0;
-            }
-
-            .service-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-            }
-
-            .service-card h3 {
-                font-size: 1.2rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .service-card p {
-                font-size: 0.85rem;
-                line-height: 1.4;
-            }
-
-            .service-features {
-                margin-top: 0.8rem;
-            }
-
-            .service-features li {
-                font-size: 0.8rem;
-                padding: 0.2rem 0;
-            }
-
-            /* Segmentos compactos */
-            .segments-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-
-            .segment-item {
-                padding: 0.6rem 0.3rem;
-                font-size: 0.75rem;
-                border-radius: 8px;
-            }
-
-            /* Portfolio compacto */
-            .portfolio-image {
-                height: 120px;
-                font-size: 0.9rem;
-            }
-
-            .portfolio-content {
-                padding: 1rem;
-            }
-
-            .portfolio-content h3 {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .portfolio-content p {
-                font-size: 0.8rem;
-                line-height: 1.4;
-            }
-
-            /* Testimonials compactos */
-            .testimonial {
-                padding: 1.2rem 1rem;
-            }
-
-            .testimonial-photo {
-                width: 50px;
-                height: 50px;
-                font-size: 1rem;
-            }
-
-            .testimonial p {
-                font-size: 0.8rem;
-                line-height: 1.4;
-            }
-
-            .testimonial-name {
-                font-size: 0.9rem;
-                margin-top: 0.8rem;
-            }
-
-            .testimonial-position {
-                font-size: 0.75rem;
-            }
-
-            /* ESG ultra-compacto */
-            .sustainability-highlight {
-                padding: 2rem 0;
-            }
-
-            .sustainability-highlight h2 {
-                font-size: 1.4rem !important;
-                margin-bottom: 1.5rem !important;
-            }
-
-            .sustainability-highlight div[style*="font-size: 3rem"] {
-                font-size: 2rem !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            .sustainability-highlight h3 {
-                font-size: 1rem !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            .sustainability-highlight p {
-                font-size: 0.8rem !important;
-                line-height: 1.3 !important;
-            }
-
-            /* Parceiros ultra-compactos */
-            .partners {
-                padding: 2rem 0;
-            }
-
-            .partners-title {
-                font-size: 1.2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .partners-grid {
-                gap: 0.8rem;
-            }
-
-            .partner-logo {
-                width: 70px;
-                height: 45px;
-            }
-
-            .partner-placeholder {
-                font-size: 0.7rem;
-                line-height: 1.1;
-            }
-
-            /* Contato ultra-compacto */
-            #contact {
-                padding: 3rem 0 !important;
-            }
-
-            #contact h2 {
-                font-size: 1.8rem !important;
-                margin-bottom: 1.5rem !important;
-            }
-
-            #contact p {
-                font-size: 1rem !important;
-                margin-bottom: 2rem !important;
-                padding: 0 0.5rem;
-            }
-
-            #contact .cta-button {
-                padding: 0.6rem 1rem !important;
-                font-size: 0.85rem !important;
-                min-width: 150px;
-                margin: 0.3rem 0 !important;
-            }
-
-            /* Footer ultra-compacto */
-            .footer {
-                padding: 2rem 0 1rem;
-            }
-
-            .footer-content {
-                padding: 0 1rem;
-            }
-
-            .footer-section h3 {
-                font-size: 1.1rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .footer-section p,
-            .contact-info li {
-                font-size: 0.85rem;
-                line-height: 1.4;
-            }
-
-            /* Página de agendamento */
-            .appointment-section {
-                padding: 3rem 0;
-            }
-
-            .appointment-container {
-                padding: 0 0.8rem;
-            }
-
-            .appointment-container h1 {
-                font-size: 1.6rem !important;
-                margin-bottom: 0.8rem !important;
-            }
-
-            .appointment-container p {
-                font-size: 0.9rem !important;
-                margin-bottom: 1.5rem !important;
-            }
-
-            .back-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .appointment-iframe {
-                padding: 1rem;
-                margin-top: 1.5rem;
-            }
-
-            /* Menu mobile otimizado */
-            .mobile-nav {
-                padding: 5rem 1rem 2rem;
-            }
-
-            .mobile-nav-links a {
-                font-size: 1.2rem;
-                padding: 0.8rem 0;
-            }
-
-            .mobile-cta {
-                margin-top: 2rem;
-            }
-
-            .mobile-cta .cta-button {
-                padding: 0.6rem 1.2rem !important;
-                font-size: 0.9rem !important;
-            }
-        }
-
         /* Pages */
         .page {
             display: none;
@@ -1029,12 +572,13 @@
         }
 
         .appointment-section {
-            padding: 5rem 0;
+            padding: 3rem 0;
             background: var(--gray-lighter);
+            min-height: 100vh;
         }
 
         .appointment-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
             text-align: center;
@@ -1042,10 +586,18 @@
 
         .appointment-iframe {
             background: white;
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin-top: 2rem;
+            width: 100%;
+            min-height: 700px;
+        }
+
+        .appointment-iframe iframe {
+            width: 100% !important;
+            min-height: 700px !important;
+            border-radius: 10px;
         }
 
         .back-button {
@@ -1114,23 +666,9 @@
             object-fit: contain;
         }
 
-        /* Placeholder para logos - remova quando adicionar logos reais */
-        .partner-placeholder {
-            color: var(--gray-medium);
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        /* ESG/Sustainability highlight - ALTERE A COR AQUI */
+        /* ESG/Sustainability highlight */
         .sustainability-highlight {
-            /* 🎨 PARA ALTERAR A COR DE FUNDO, MODIFIQUE A LINHA ABAIXO: */
             background: linear-gradient(135deg, var(--accent), var(--secondary));
-            /* Exemplos de outras opções de cor:
-               background: linear-gradient(135deg, #2E7D32, #43A047); // Verde
-               background: linear-gradient(135deg, #1565C0, #0D47A1); // Azul
-               background: linear-gradient(135deg, #F57C00, #E65100); // Laranja
-               background: var(--secondary); // Cor sólida
-            */
             color: white;
             padding: 3rem 0;
             text-align: center;
@@ -1148,6 +686,150 @@
             transform: translateY(-50%);
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding: 6rem 0 4rem;
+                min-height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+
+            .segments-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .appointment-container {
+                padding: 0 1rem;
+            }
+
+            .appointment-iframe {
+                padding: 0.5rem;
+                min-height: 600px;
+            }
+
+            .appointment-iframe iframe {
+                min-height: 600px !important;
+            }
+
+            #contact .container > div[style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 1rem !important;
+                align-items: center !important;
+                padding: 0 1rem;
+            }
+
+            #contact .cta-button {
+                padding: 0.8rem 1.5rem !important;
+                font-size: 1rem !important;
+                margin: 0.5rem 0 !important;
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 5rem 0 3rem;
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .appointment-iframe {
+                min-height: 500px;
+            }
+
+            .appointment-iframe iframe {
+                min-height: 500px !important;
+            }
+        }
+
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
@@ -1158,7 +840,11 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">Multilagos</div>
+            <div class="logo">
+                <!-- Para adicionar sua logo como imagem, descomente a linha abaixo e adicione o caminho da imagem -->
+                 <img src="ML-logo.png" alt="Multilagos Logo"> 
+                Multilagos
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Serviços</a></li>
@@ -1167,274 +853,333 @@
                 <li><a href="#testimonials">Depoimentos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
-            <a href="#" onclick="showAppointmentPage()" class="cta-button">Agendar Consultoria</a>
-            <div class="mobile-menu">
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-links">
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#services" onclick="closeMobileMenu()">Serviços</a></li>
+                <li><a href="#segments" onclick="closeMobileMenu()">Segmentos</a></li>
+                <li><a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a></li>
+                <li><a href="#testimonials" onclick="closeMobileMenu()">Depoimentos</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contato</a></li>
+            </ul>
+            <div class="mobile-cta">
+                <a href="#" onclick="showAppointmentPage(); closeMobileMenu();" class="cta-button">Vamos conversar </a>
             </div>
         </nav>
     </header>
 
     <!-- Main Content -->
     <div id="mainContent" class="page active">
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <!-- Slideshow Background -->
-        <div class="hero-slideshow">
-            <div class="hero-slide active"></div>
-            <div class="hero-slide"></div>
-            <div class="hero-slide"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1>Multilagos</h1>
-            <p class="subtitle">Negócios & Tecnologia</p>
-            <p class="hero-description">
-                Transformamos empresas através da digitalização inteligente e reestruturação financeira, 
-                impulsionando crescimento sustentável e competitividade no mercado.
-            </p>
-            <a href="#" onclick="showAppointmentPage()" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                Transforme seu Negócio Agora
-            </a>
-        </div>
-    </section>
-
-    <!-- Sustainability Highlight -->
-    <section class="sustainability-highlight">
-        <div class="container">
-            <div class="sustainability-content">
-                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Transformação Digital Sustentável</h2>
-                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
-                    Nossa abordagem de transformação digital não apenas otimiza processos e reduz custos, 
-                    mas também contribui para a sustentabilidade do seu negócio, reduzindo desperdícios, 
-                    automatizando tarefas e promovendo eficiência energética.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section services">
-        <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Consultoria de Transformação Digital</h3>
-                    <p>Revolucionamos sua empresa com tecnologia de ponta e processos otimizados.</p>
-                    <ul class="service-features">
-                        <li>Planejamento Estratégico Digital</li>
-                        <li>Digitalização e Automação de Processos</li>
-                        <li>Integração de Sistemas</li>
-                        <li>Atualização do Modelo de Negócio</li>
-                        <li>Implementação de Tecnologias Emergentes</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">💰</div>
-                    <h3>Consultoria de Transformação Financeira</h3>
-                    <p>Reestruturamos e otimizamos toda a gestão financeira da sua empresa.</p>
-                    <ul class="service-features">
-                        <li>Implantação de Sistema ERP</li>
-                        <li>Reestruturação da Área Financeira</li>
-                        <li>Construção da Área Financeira do Zero</li>
-                        <li>FP&A (Financial Planning & Analysis)</li>
-                        <li>BPO Financeiro</li>
-                        <li>DRE e Fluxo de Caixa</li>
-                        <li>Contas a Pagar e Receber</li>
-                        <li>Conciliação Bancária</li>
-                        <li>Integração entre Sistemas</li>
-                        <li>Sistemas de Pagamentos</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Segments Section -->
-    <section id="segments" class="section segments">
-        <div class="container">
-            <h2 class="section-title">Segmentos que Atendemos</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--gray-medium);">
-                Especializados em empresas de serviços com soluções personalizadas
-            </p>
-            <div class="segments-grid">
-                <div class="segment-item">🏨 Hotelaria</div>
-                <div class="segment-item">🏢 Condomínios</div>
-                <div class="segment-item">💪 Academias</div>
-                <div class="segment-item">🏥 Clínicas Médicas</div>
-                <div class="segment-item">🦷 Odontológicas</div>
-                <div class="segment-item">🏃‍♀️ Fisioterapia</div>
-                <div class="segment-item">🧘‍♀️ Pilates</div>
-                <div class="segment-item">🎓 Escolas</div>
-                <div class="segment-item">🏛️ Faculdades</div>
-                <div class="segment-item">✨ Clínicas de Estética</div>
-                <div class="segment-item">⚽ Clubes</div>
-                <div class="segment-item">📊 Escritórios</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section portfolio">
-        <div class="container">
-            <h2 class="section-title">Portfolio de Sucessos</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        🏨 Rede Hoteleira Premium
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Transformação Digital Hoteleira</h3>
-                        <p>Implementação completa de sistema de gestão hoteleira com automação de processos e integração de canais de venda, resultando em 40% de aumento na eficiência operacional.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        🏥 Clínica Médica Integrada
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Reestruturação Financeira Médica</h3>
-                        <p>Construção completa da área financeira com implantação de ERP especializado, controle de fluxo de caixa e integração com convênios médicos.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        🎓 Instituto Educacional
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Digitalização Educacional</h3>
-                        <p>Transformação digital completa com plataforma de ensino online, gestão acadêmica automatizada e sistema financeiro integrado.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section testimonials">
-        <div class="container">
-            <h2 class="section-title">O que Nossos Clientes Dizem</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-photo">MR</div>
-                    <p>A Multilagos transformou completamente nossa gestão financeira. Implementaram um sistema ERP que revolucionou nossa operação e aumentou nossa margem de lucro em 35%.</p>
-                    <div class="testimonial-name">Maria Regina</div>
-                    <div class="testimonial-position">Diretora - Clínica Vida & Saúde</div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-photo">JS</div>
-                    <p>Excelente trabalho na digitalização dos nossos processos. A automação implementada nos fez economizar 60% do tempo gasto em tarefas administrativas.</p>
-                    <div class="testimonial-name">João Silva</div>
-                    <div class="testimonial-position">Proprietário - Academia FitMax</div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-photo">CF</div>
-                    <p>Profissionais altamente capacitados! A reestruturação financeira que fizeram em nosso hotel resultou em uma gestão muito mais eficiente e lucrativa.</p>
-                    <div class="testimonial-name">Carlos Ferreira</div>
-                    <div class="testimonial-position">Gerente Geral - Hotel Costa Verde</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact/CTA Section -->
-    <section id="contact" class="section" style="background: linear-gradient(135deg, var(--accent), var(--secondary)); color: white;">
-        <div class="container" style="text-align: center;">
-            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 2rem;">
-                Pronto para Transformar seu Negócio?
-            </h2>
-            <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">
-                Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua empresa
-            </p>
-            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#" onclick="showAppointmentPage()" class="cta-button" style="background: white; color: var(--accent); font-size: 1.1rem; padding: 1rem 2rem;">
-                    📅 Agendar Consultoria
-                </a>
-                <a href="tel:+5511993320962" class="cta-button" style="background: transparent; border: 2px solid white; font-size: 1.1rem; padding: 1rem 2rem;">
-                    📞 Ligar Agora
-                </a>
-                <a href="https://wa.me/5522999999999" class="cta-button" style="background: #25D366; border: none; font-size: 1.1rem; padding: 1rem 2rem;">
-                    💬 WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="partners">
-        <div class="container">
-            <h3 class="partners-title">Nossos Parceiros</h3>
-            <div class="partners-grid">
-                <!-- Substitua os placeholders pelas imagens reais dos parceiros -->
-                <div class="partner-logo">
-                    <!--<div class="partner-placeholder">Logo<br>Parceiro 1</div>-->
-                     <img src= "logo-omie-institucional.png" alt="Parceiro 1">
-                </div>
-                <div class="partner-logo">
-                   <!-- <div class="partner-placeholder">Logo<br>Parceiro 2</div> -->
-                     <img src="logo-Asaas_Azul.png" 
-                     alt="Parceiro 2"> 
-                </div>
-                <div class="partner-logo">
-                  <!--  <div class="partner-placeholder">Logo<br>Parceiro 3</div> -->
-                     <img src="Logo GoogleWorkspace.webp" alt="Parceiro 3"> 
-                </div>
-                <!-- <div class="partner-logo">
-                    <div class="partner-placeholder">Logo<br>Parceiro 4</div>-->
-                     <img src="basic-category.png" alt="Parceiro 4"> 
-                </div>
-               <!-- <div class="partner-logo">
-                    <div class="partner-placeholder">Logo<br>Parceiro 5</div>
-                     <img src="caminho/para/logo5.png" alt="Parceiro 5"> 
-                </div>-->
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Multilagos</h3>
-                    <p>Negócios & Tecnologia</p>
-                    <p style="opacity: 0.8; margin-top: 1rem;">
-                        Transformando empresas através da inovação digital e excelência financeira.
-                    </p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <ul class="contact-info">
-                        <li>📧 contato@multilagos.com.br</li>
-                        <li>📱 (11) 99332-0962</li>
-                        <li>📍 Online | Rio de Janeiro e Região dos Lagos</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Serviços</h3>
-                    <ul class="contact-info">
-                        <li>Transformação Digital</li>
-                        <li>Transformação Financeira</li>
-                        <li>Consultoria Estratégica</li>
-                        <li>Implementação de ERP</li>
-                    </ul>
-                </div>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <!-- Slideshow Background -->
+            <div class="hero-slideshow">
+                <div class="hero-slide active"></div>
+                <div class="hero-slide"></div>
+                <div class="hero-slide"></div>
             </div>
             
-            <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; margin-top: 2rem;">
-                <p>&copy; 2025 Multilagos - Negócios & Tecnologia. Todos os direitos reservados.</p>
+            <div class="hero-content">
+                <h1>Multilagos</h1>
+                <p class="subtitle">Negócios & Tecnologia</p>
+                <p class="hero-description">
+                    Transformamos empresas através da digitalização inteligente e reestruturação financeira, 
+                    impulsionando crescimento sustentável e competitividade no mercado.
+                </p>
+                <a href="#" onclick="showAppointmentPage()" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                    Transforme seu Negócio Agora
+                </a>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <!-- Sustainability Highlight -->
+        <section class="sustainability-highlight">
+            <div class="container">
+                <div class="sustainability-content">
+                    <h2 style="font-size: 2rem; margin-bottom: 1rem;">Transformação Digital Sustentável</h2>
+                    <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                        Nossa abordagem de transformação digital vai além da otimização de processos e redução de custos.<br /> Ao digitalizar as operações, nós reduzimos o consumo de recursos e minimizamos o desperdício, contribuindo para a sustentabilidade ambiental. <br />
+                        <br />
+
+                        A automação de tarefas repetitivas aumenta a eficiência e a satisfação dos colaboradores, fortalecendo o pilar social. <br />
+                        <br />
+
+                        Além disso, as soluções digitais garantem maior transparência e rastreabilidade dos dados, aprimorando a governança. <br />
+                        <br />
+
+                        Assim, impulsionamos o sucesso do seu negócio de forma mais responsável e integrada aos princípios ESG.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services">
+            <div class="container">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3>Consultoria de Transformação Digital</h3>
+                        <p>Revolucionamos sua empresa com tecnologia de ponta e processos otimizados.</p>
+                        <ul class="service-features">
+                            <li>Planejamento Estratégico</li>
+                            <li>Reestruturação do Modelo de Negócio</li>
+                            <li>Digitalização e Automação de Processos</li>
+                            <li>Integração de Sistemas</li>
+                            <li>Produtividade e Colaboração</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">💰</div>
+                        <h3>Consultoria de Transformação Financeira</h3>
+                        <p>Reestruturamos e otimizamos toda a gestão financeira da sua empresa.</p>
+                        <ul class="service-features">
+                            <li>Planejamento Estratégico e Financeiro</li>
+                            <li>Construção da Área Financeira do Zero</li>
+                            <li>Reestruturação da Área Financeira</li>
+                            <li>FP&A (Financial Planning & Analysis)</li>
+                            <li>BPO Financeiro</li>
+                            <li>Implantação de Sistema ERP</li>
+                            <li>DRE e Fluxo de Caixa</li>
+                            <li>Contas a Pagar e Receber</li>
+                            <li>Conciliação Bancária</li>
+                            <li>Integração entre Sistemas</li>
+                            <li>Sistemas de Pagamentos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Segments Section -->
+        <section id="segments" class="section segments">
+            <div class="container">
+                <h2 class="section-title">Segmentos que Atendemos</h2>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--gray-medium);">
+                    Especializados em empresas de serviços com soluções personalizadas
+                </p>
+                <div class="segments-grid">
+                    <div class="segment-category">
+                        <h3><span class="segment-category-icon">🎓</span>Instituições de Ensino</h3>
+                        <ul class="segment-subcategories">
+                            <li>Colégios e Escolas</li>
+                            <li>Cursos Profissionalizantes</li>
+                            <li>Faculdades e Universidades</li>
+                            <li>Cursos Online</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="segment-category">
+                        <h3><span class="segment-category-icon">🏥</span>Clínicas de Saúde</h3>
+                        <ul class="segment-subcategories">
+                            <li>Clínicas de Fisioterapia</li>
+                            <li>Clínicas de Estética</li>
+                            <li>Clínicas Odontológicas</li>
+                            <li>Clínicas Médicas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="segment-category">
+                        <h3><span class="segment-category-icon">💪</span>Academia & Fitness</h3>
+                        <ul class="segment-subcategories">
+                            <li>Academias</li>
+                            <li>Dojos e Centros de Lutas</li>
+                            <li>Studios de Pilates</li>
+                            <li>Centros Esportivos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="segment-category">
+                        <h3><span class="segment-category-icon">🏛️</span>Organizações</h3>
+                        <ul class="segment-subcategories">
+                            <li>Associações</li>
+                            <li>ONGs</li>
+                            <li>Sindicatos</li>
+                            <li>Cooperativas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="segment-category">
+                        <h3><span class="segment-category-icon">🏢</span>Imobiliário</h3>
+                        <ul class="segment-subcategories">
+                            <li>Condomínios</li>
+                            <li>Administração de Condomínios</li>
+                            <li>Imobiliárias</li>
+                            <li>Construtoras</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="segment-category">
+                        <h3><span class="segment-category-icon">🏨</span>Hotelaria & Turismo</h3>
+                        <ul class="segment-subcategories">
+                            <li>Hotéis e Pousadas</li>
+                            <li>Agências de Turismo</li>
+                            <li>Operadoras de Viagem</li>
+                            <li>Restaurantes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section portfolio">
+            <div class="container">
+                <h2 class="section-title">Portfolio de Sucessos</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            🏨 Rede Hoteleira Premium
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Transformação Digital Hoteleira</h3>
+                            <p>Implementação completa de sistema de gestão hoteleira com automação de processos e integração de canais de venda, resultando em 40% de aumento na eficiência operacional.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            🏥 Clínica Médica Integrada
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Reestruturação Financeira Médica</h3>
+                            <p>Construção completa da área financeira com implantação de ERP especializado, controle de fluxo de caixa e integração com convênios médicos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            🎓 Instituto Educacional
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Digitalização Educacional</h3>
+                            <p>Transformação digital completa com plataforma de ensino online, gestão acadêmica automatizada e sistema financeiro integrado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">O que Nossos Clientes Dizem</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="testimonial-photo">MR</div>
+                        <p>A Multilagos transformou completamente nossa gestão financeira. Implementaram um sistema ERP que revolucionou nossa operação e aumentou nossa margem de lucro em 35%.</p>
+                        <div class="testimonial-name">Maria Regina</div>
+                        <div class="testimonial-position">Diretora - Clínica Vida & Saúde</div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-photo">JS</div>
+                        <p>Excelente trabalho na digitalização dos nossos processos. A automação implementada nos fez economizar 60% do tempo gasto em tarefas administrativas.</p>
+                        <div class="testimonial-name">João Silva</div>
+                        <div class="testimonial-position">Proprietário - Academia FitMax</div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-photo">CF</div>
+                        <p>Profissionais altamente capacitados! A reestruturação financeira que fizeram em nosso hotel resultou em uma gestão muito mais eficiente e lucrativa.</p>
+                        <div class="testimonial-name">Carlos Ferreira</div>
+                        <div class="testimonial-position">Gerente Geral - Hotel Costa Verde</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/CTA Section -->
+        <section id="contact" class="section" style="background: linear-gradient(135deg, var(--accent), var(--secondary)); color: white;">
+            <div class="container" style="text-align: center;">
+                <h2 style="color: white; font-size: 2.5rem; margin-bottom: 2rem;">
+                    Pronto para Transformar seu Negócio?
+                </h2>
+                <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">
+                    Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua empresa
+                </p>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" onclick="showAppointmentPage()" class="cta-button" style="background: white; color: var(--accent); font-size: 1.1rem; padding: 1rem 2rem;">
+                        📅 Agendar Consultoria
+                    </a>
+                    <a href="tel:+5511993320962" class="cta-button" style="background: transparent; border: 2px solid white; font-size: 1.1rem; padding: 1rem 2rem;">
+                        📞 Ligar Agora
+                    </a>
+                    <a href="https://wa.me/55119993320962" class="cta-button" style="background: #25D366; border: none; font-size: 1.1rem; padding: 1rem 2rem;">
+                        💬 WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners">
+            <div class="container">
+                <h3 class="partners-title">Nossos Parceiros</h3>
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <img src="logo-omie-institucional.png" alt="Omie">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="logo-Asaas_Azul.png" alt="Asaas">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="Logo GoogleWorkspace.webp" alt="Google Workspace">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="basic-category.png" alt="Parceiro 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3>Multilagos</h3>
+                        <p>Negócios & Tecnologia</p>
+                        <p style="opacity: 0.8; margin-top: 1rem;">
+                            Transformando empresas através da inovação digital e excelência financeira.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Contato</h3>
+                        <ul class="contact-info">
+                            <li>📧 contato@multilagos.com.br</li>
+                            <li>📱 (11) 99332-0962</li>
+                            <li>📍 Online | Rio de Janeiro e Região dos Lagos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Serviços</h3>
+                        <ul class="contact-info">
+                            <li>Transformação Digital</li>
+                            <li>Transformação Financeira</li>
+                            <li>Consultoria Estratégica</li>
+                            <li>Implementação de ERP</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; margin-top: 2rem;">
+                    <p>&copy; 2025 Multilagos - Negócios & Tecnologia. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Appointment Page -->
@@ -1448,7 +1193,7 @@
                 </p>
                 <div class="appointment-iframe">
                     <!-- Google Calendar Appointment Scheduling begin -->
-                    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2-5TixNWAThOkJmFXje9fg_usgcMYhtgSDB1xZ-sX-xXByAfA2r5--XBiSdHMMMJJipMfq4v0E?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2-5TixNWAThOkJmFXje9fg_usgcMYhtgSDB1xZ-sX-xXByAfA2r5--XBiSdHMMMJJipMfq4v0E?gv=true" style="border: 0" width="100%" height="700" frameborder="0"></iframe>
                     <!-- end Google Calendar Appointment Scheduling -->
                 </div>
             </div>
@@ -1456,6 +1201,23 @@
     </div>
 
     <script>
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            mobileMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            mobileMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+        }
+
         // Slideshow Hero Background
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
@@ -1527,11 +1289,23 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.service-card, .portfolio-item, .testimonial, .segment-item').forEach(el => {
+        document.querySelectorAll('.service-card, .portfolio-item, .testimonial, .segment-category').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNav = document.getElementById('mobileNav');
+            const isClickInsideMenu = mobileNav.contains(event.target);
+            const isClickOnToggle = mobileMenu.contains(event.target);
+
+            if (!isClickInsideMenu && !isClickOnToggle && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
         });
     </script>
 </body>
