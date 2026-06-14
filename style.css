@@ -1491,7 +1491,7 @@ em { font-style: normal; color: var(--red); }
   width: auto;
   object-fit: contain;
   display: block;
-  filter: brightness(0) invert(1);
+  /*filter: brightness(0) invert(1);*/
 }
 
 .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
@@ -1507,7 +1507,7 @@ em { font-style: normal; color: var(--red); }
   height: 40px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+/*  filter: brightness(0) invert(1);*/
 }
 
 .footer-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
@@ -2070,7 +2070,7 @@ em { font-style: normal; color: var(--red); }
   max-width: 120px;
   object-fit: contain;
   width: auto;
-  filter: brightness(0) invert(1);
+/*  filter: brightness(0) invert(1);*/
 }
 .asaas-logo-img.partner-img-error { display: none; }
 .asaas-logo-img.partner-img-error + .asaas-logo-fallback { display: flex; }
@@ -2359,7 +2359,7 @@ em { font-style: normal; color: var(--red); }
   max-width: 120px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+/*  filter: brightness(0) invert(1);*/
 }
 .asaas-footer-img.partner-img-error { display: none; }
 .asaas-footer-img.partner-img-error + .asaas-footer-fallback { display: flex; }
