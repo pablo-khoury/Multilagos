@@ -166,11 +166,11 @@ em { font-style: normal; color: var(--red); }
 .btn-outline-dark {
   background: transparent;
   color: var(--dark);
-  border-color: var(--dark);
+  border-color: var(--red);
   width: 100%;
 }
 .btn-outline-dark:hover {
-  background: var(--dark);
+  background: var(--red);
   color: var(--white);
 }
 
@@ -1284,7 +1284,7 @@ em { font-style: normal; color: var(--red); }
 .contact-opt-icon svg { width: 24px; height: 24px; }
 
 .contact-opt-wa { background: rgba(37,211,102,.12); color: #25D366; }
-.contact-opt-cal { background: rgba(212,11,58,.08); color: var(--dark); }  /* rgba(17,31,36,.08) */
+.contact-opt-cal { background: rgba(17,31,36,.08); color: var(--dark); }  
 
 .contact-option h4 { font-size: 0.9rem; font-weight: 700; color: var(--dark); }
 .contact-option p { font-size: 0.8rem; color: var(--text-light); }
@@ -1354,7 +1354,7 @@ em { font-style: normal; color: var(--red); }
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.4);
+  color: rgba(212,11,58,.4);
   margin-bottom: 16px;
 }
 
@@ -2417,10 +2417,10 @@ em { font-style: normal; color: var(--red); }
   .ai-wrapper { grid-template-columns: 1fr 300px; }
 }
 
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
   .asaas-featured { grid-template-columns: 1fr; gap: 20px; }
   .footer-asaas { grid-template-columns: 1fr; gap: 16px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .ai-wrapper { grid-template-columns: 1fr; }
   .ai-steps { margin-top: 24px; }
-}
+} 
