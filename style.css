@@ -1484,10 +1484,10 @@ em { font-style: normal; color: var(--red); }
 /* =============================================
    NAV LOGO — image support
    ============================================= */
-.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo { display: flex; align-items: center; gap: 50px; }
 
 .nav-logo-img {
-  height: 75px;
+  height: 100px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
