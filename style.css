@@ -1284,7 +1284,7 @@ em { font-style: normal; color: var(--red); }
 .contact-opt-icon svg { width: 24px; height: 24px; }
 
 .contact-opt-wa { background: rgba(37,211,102,.12); color: #25D366; }
-.contact-opt-cal { background: rgba(17,31,36,.08); color: var(--dark); }
+.contact-opt-cal { background: rgba(212,11,58,.08); color: var(--dark); }  /* rgba(17,31,36,.08) */
 
 .contact-option h4 { font-size: 0.9rem; font-weight: 700; color: var(--dark); }
 .contact-option p { font-size: 0.8rem; color: var(--text-light); }
