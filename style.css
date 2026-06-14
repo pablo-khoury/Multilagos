@@ -1487,7 +1487,7 @@ em { font-style: normal; color: var(--red); }
 .nav-logo { display: flex; align-items: center; gap: 10px; }
 
 .nav-logo-img {
-  height: 36px;
+  height: 75px;
   width: auto;
   object-fit: contain;
   display: block;
