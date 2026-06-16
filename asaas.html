@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automacao de Cobrancas com Asaas | Multilagos</title>
+  <meta name="description" content="Reduza ate 70% da inadimplencia com automacao de cobrancas via Asaas. WhatsApp, SMS, e-mail automaticos com Pix, boleto e cartao. Implantacao a partir de R$750." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="navbar-solid">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Multilagos" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li class="nav-dropdown">
+          <a href="solucoes.html" class="nav-dropdown-toggle">Nossas Solucoes</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="asaas.html" class="active">Automacao de Cobrancas (Asaas)</a></li>
+            <li><a href="recibo-saude.html">Recibo Saude Automatico</a></li>
+            <li><a href="documentos-automaticos.html">Automacao de Documentos</a></li>
+            <li><a href="agente-ia.html">Agente de IA Financeiro</a></li>
+            <li><a href="implantacao-erp.html">Implantacao de ERPs</a></li>
+            <li><a href="integracoes.html">Integracao de Sistemas</a></li>
+            <li><a href="implantacao-financeiro.html">Financeiro do Zero</a></li>
+          </ul>
+        </li>
+        <li><a href="parceiros.html">Parceiros</a></li>
+        <li><a href="index.html#contato" class="nav-cta">Falar com Especialista</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="lp-hero">
+    <div class="lp-hero-bg" style="background-image:url('https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+    <div class="lp-hero-overlay"></div>
+    <div class="container">
+      <div class="lp-hero-content">
+        <div class="lp-hero-logo-wrap">
+          <img src="partners/asaas.png" alt="Asaas" class="lp-hero-logo" onerror="this.style.display='none'" />
+          <span class="lp-hero-badge">Parceiro Oficial</span>
+        </div>
+        <h1>Automacao de Cobrancas<br>que recupera ate <em>70%</em><br>da sua inadimplencia</h1>
+        <p class="lp-hero-desc">Regua de cobranca automatica via WhatsApp, SMS e e-mail. Pix, boleto e cartao integrados. Sua marca em todos os links de pagamento.</p>
+        <div class="lp-hero-actions">
+          <a href="index.html#simulador" class="btn btn-primary btn-lg">Simular Meu ROI</a>
+          <a href="#como-funciona" class="btn btn-ghost">Ver Como Funciona</a>
+        </div>
+        <div class="lp-hero-stats">
+          <div class="lp-stat">
+            <span class="lp-stat-num">70%</span>
+            <span class="lp-stat-lbl">reducao media<br>inadimplencia</span>
+          </div>
+          <div class="lp-stat">
+            <span class="lp-stat-num">150+</span>
+            <span class="lp-stat-lbl">empresas<br>atendidas</span>
+          </div>
+          <div class="lp-stat">
+            <span class="lp-stat-num">R$750</span>
+            <span class="lp-stat-lbl">implantacao<br>a partir de</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="lp-section lp-problem">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">O Problema</span>
+        <h2>Sua empresa esta perdendo<br>dinheiro todos os meses?</h2>
+        <p>Se voce identifica com algum desses cenarios, a automacao de cobrancas pode ser a solucao:</p>
+      </div>
+      <div class="lp-problem-grid">
+        <div class="lp-problem-card">
+          <div class="lp-problem-icon">&#10005;</div>
+          <h4>Inadimplencia Alta</h4>
+          <p>15% ou mais do seu faturamento fica sem receber todo mes, comprometendo o fluxo de caixa.</p>
+        </div>
+        <div class="lp-problem-card">
+          <div class="lp-problem-icon">&#10005;</div>
+          <h4>Cobranca Manual</h4>
+          <p>Equipe gasta horas ligando e mandando mensagens no WhatsApp para cobrar clientes.</p>
+        </div>
+        <div class="lp-problem-card">
+          <div class="lp-problem-icon">&#10005;</div>
+          <h4>Constrangimento</h4>
+          <p>Cobrar pessoalmente e desconfortavel. Relacionamentos se desgastam.</p>
+        </div>
+        <div class="lp-problem-card">
+          <div class="lp-problem-icon">&#10005;</div>
+          <h4>Esquecimento</h4>
+          <p>Clientes atrasados passam dias sem serem lembrados. Boletos vencem sem aviso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUCAO -->
+  <section id="como-funciona" class="lp-section lp-solution">
+    <div class="container">
+      <div class="section-header light">
+        <span class="section-tag">A Solucao</span>
+        <h2>Automacao de cobrancas<br>que trabalha 24/7 por voce</h2>
+        <p>Nossa integracao com o Asaas automatiza todo o ciclo de cobranca, do vencimento ao recebimento.</p>
+      </div>
+
+      <div class="lp-solution-grid">
+        <div class="lp-solution-step">
+          <div class="lp-step-num">1</div>
+          <div class="lp-step-content">
+            <h4>Fatura Gerada Automaticamente</h4>
+            <p>Apos cada servico ou vencimento da mensalidade, o sistema gera a cobranca com Pix, boleto e link de cartao.</p>
+          </div>
+        </div>
+
+        <div class="lp-solution-step">
+          <div class="lp-step-num">2</div>
+          <div class="lp-step-content">
+            <h4>Regua de Cobranca Inteligente</h4>
+            <p>WhatsApp, SMS e e-mail sao enviados nos momentos certos: 3 dias antes, no dia, 3 dias depois, 7 dias depois...</p>
+          </div>
+        </div>
+
+        <div class="lp-solution-step">
+          <div class="lp-step-num">3</div>
+          <div class="lp-step-content">
+            <h4>Cliente Paga com 1 Clique</h4>
+            <p>Link direto para Pix copia-e-cola, boleto bancario ou pagamento com cartao de credito. Sem friccao.</p>
+          </div>
+        </div>
+
+        <div class="lp-solution-step">
+          <div class="lp-step-num">4</div>
+          <div class="lp-step-content">
+            <h4>Baixa Automatica no Sistema</h4>
+            <p>Pagamento confirmado = baixa automatica. Nao precisa lancar nada manualmente.</p>
+          </div>
+        </div>
+
+        <div class="lp-solution-step">
+          <div class="lp-step-num">5</div>
+          <div class="lp-step-content">
+            <h4>Relatorios em Tempo Real</h4>
+            <p>Acompanhe quem pagou, quem esta atrasado e quanto esta recuperando no dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section class="lp-section lp-features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Recursos</span>
+        <h2>Tudo que voce precisa para<br>acabar com a inadimplencia</h2>
+      </div>
+      <div class="lp-features-grid">
+        <!-- WhatsApp automático -->
+        <div class="lp-feature-card lp-feature-with-image">
+          <div class="lp-feature-image">
+            <img src="https://images.pexels.com/photos/6804577/pexels-photo-6804577.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Notificacao automatica no celular" loading="lazy" />
+          </div>
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h4>WhatsApp Automatico</h4>
+          <p>Mensagens personalizadas com sua marca, enviadas nos momentos certos sem voce tocar no celular.</p>
+        </div>
+        <!-- SMS e Email -->
+        <div class="lp-feature-card lp-feature-with-image">
+          <div class="lp-feature-image">
+            <img src="https://images.pexels.com/photos/4132538/pexels-photo-4132538.jpeg?auto=compress&cs=tinysrgb&w=400" alt="SMS e email de cobranca" loading="lazy" />
+          </div>
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h4>SMS e E-mail</h4>
+          <p>Lembretes antes e apos o vencimento. Seu cliente recebe um aviso pelo canal mais conveniente.</p>
+        </div>
+        <!-- Pix, Boleto e Cartão -->
+        <div class="lp-feature-card lp-feature-with-image">
+          <div class="lp-feature-image">
+            <img src="https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pagamento via Pix Boleto e Cartao" loading="lazy" />
+          </div>
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <h4>Pix, Boleto e Cartao</h4>
+          <p>Todas as formas de pagamento integradas em um unico link. O cliente escolhe como quer pagar.</p>
+        </div>
+        <!-- Fatura personalizada -->
+        <div class="lp-feature-card lp-feature-with-image">
+          <div class="lp-feature-image">
+            <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fatura personalizada com sua marca" loading="lazy" />
+          </div>
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <h4>Fatura com Sua Marca</h4>
+          <p>Pagina de pagamento com sua logo, cores e nome. Seu cliente ve sua empresa, nao o Asaas.</p>
+        </div>
+        <!-- Assinaturas recorrentes -->
+        <div class="lp-feature-card lp-feature-with-image">
+          <div class="lp-feature-image">
+            <img src="https://images.pexels.com/photos/7172740/pexels-photo-7172740.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gestao de mensalidades recorrentes" loading="lazy" />
+          </div>
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>Assinaturas Recorrentes</h4>
+          <p>Cobranca mensal automatica para mensalidades e servicos continuos. Debito automatico no cartao.</p>
+        </div>
+        <!-- Relatórios -->
+        <div class="lp-feature-card lp-feature-with-image">
+          <div class="lp-feature-image">
+            <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Relatorios e dashboard financeiro" loading="lazy" />
+          </div>
+          <div class="lp-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4>Relatorios Completos</h4>
+          <p>Dashboard com inadimplencia, recebimentos, previsao de caixa e historico de todas as cobrancas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="lp-section lp-benefits">
+    <div class="container">
+      <div class="lp-benefits-wrapper">
+        <div class="lp-benefits-content">
+          <span class="section-tag">Resultados</span>
+          <h2>O que muda na sua empresa<br>apos a automacao?</h2>
+          <ul class="lp-benefits-list">
+            <li>
+              <span class="lp-benefit-icon">&#10003;</span>
+              <div>
+                <strong>Inadimplencia cai ate 70%</strong>
+                <p>Clientes pagam mais rapido quando recebem lembretes no momento certo.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lp-benefit-icon">&#10003;</span>
+              <div>
+                <strong>Equipe livre do administrativo</strong>
+                <p>Horas que eram gastas cobrando agora sao usadas para crescer o negocio.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lp-benefit-icon">&#10003;</span>
+              <div>
+                <strong>Fluxo de caixa previsivel</strong>
+                <p>Saiba quanto vai entrar e quando. Planeje-se com confianca.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lp-benefit-icon">&#10003;</span>
+              <div>
+                <strong>Relacionamento preservado</strong>
+                <p>O sistema cobra, voce mantem a amizade. Sem constrangimento.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lp-benefit-icon">&#10003;</span>
+              <div>
+                <strong>Escalavel para crescimento</strong>
+                <p>10 clientes ou 1000? O sistema cobre todos sem esforco adicional.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="lp-benefits-image">
+          <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Equipe trabalhando" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGMENTOS -->
+  <section class="lp-section lp-segments">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Segmentos</span>
+        <h2>Quem mais se beneficia<br>da automacao de cobrancas?</h2>
+      </div>
+      <div class="lp-segments-grid">
+        <div class="lp-segment-card">
+          <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Saude" loading="lazy" />
+          <h4>Saude</h4>
+          <p>Clinicas e profissionais autonomos</p>
+        </div>
+        <div class="lp-segment-card">
+          <img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Academias" loading="lazy" />
+          <h4>Academias</h4>
+          <p>Mensalidades e matriculas</p>
+        </div>
+        <div class="lp-segment-card">
+          <img src="https://images.pexels.com/photos/3184394/pexels-photo-3184394.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Escolas" loading="lazy" />
+          <h4>Escolas</h4>
+          <p>Cursos e mensalidades</p>
+        </div>
+        <div class="lp-segment-card">
+          <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Imobiliarias" loading="lazy" />
+          <h4>Imobiliarias</h4>
+          <p>Alugueis e taxas</p>
+        </div>
+        <div class="lp-segment-card">
+          <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Hotelaria" loading="lazy" />
+          <h4>Hotelaria</h4>
+          <p>Diarias e reservas</p>
+        </div>
+        <div class="lp-segment-card">
+          <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Associacoes" loading="lazy" />
+          <h4>Associacoes</h4>
+          <p>Anuidades e mensalidades</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECOS -->
+  <section class="lp-section lp-pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Investimento</span>
+        <h2>Quanto custa implementar<br>a automacao de cobrancas?</h2>
+        <p>Um investimento pequeno comparado ao retorno que voce vai ver no primeiro mes.</p>
+      </div>
+      <div class="lp-pricing-card">
+        <div class="lp-pricing-header">
+          <h3>Implantacao Completa Asaas</h3>
+          <div class="lp-pricing-price">
+            <span class="lp-price-label">A partir de</span>
+            <span class="lp-price-value">R$ 750</span>
+            <span class="lp-price-period">implantacao unica</span>
+          </div>
+        </div>
+        <div class="lp-pricing-body">
+          <div class="lp-pricing-features">
+            <div class="lp-pricing-feature">
+              <span class="lp-pf-icon">&#10003;</span>
+              <span>Configuracao completa da conta Asaas</span>
+            </div>
+            <div class="lp-pricing-feature">
+              <span class="lp-pf-icon">&#10003;</span>
+              <span>Integracao com seu sistema de gestao (quando aplicavel)</span>
+            </div>
+            <div class="lp-pricing-feature">
+              <span class="lp-pf-icon">&#10003;</span>
+              <span>Regua de cobranca personalizada</span>
+            </div>
+            <div class="lp-pricing-feature">
+              <span class="lp-pf-icon">&#10003;</span>
+              <span>Pagina de pagamento com sua marca</span>
+            </div>
+            <div class="lp-pricing-feature">
+              <span class="lp-pf-icon">&#10003;</span>
+              <span>Templates de WhatsApp, SMS e e-mail</span>
+            </div>
+            <div class="lp-pricing-feature">
+              <span class="lp-pf-icon">&#10003;</span>
+              <span>Treinamento da equipe</span>
+            </div>
+            <div class="lp-pricing-feature">
+              <span class="lp-pf-icon">&#10003;</span>
+              <span>Suporte durante 30 dias</span>
+            </div>
+          </div>
+          <div class="lp-pricing-note">
+            <p><strong>+ Taxas do Asaas:</strong> Cobranca por transacao (varia conforme plano escolhido). A partir de R$0,99 por boleto pago e percentual sobre Pix/cartao.</p>
+          </div>
+        </div>
+        <div class="lp-pricing-footer">
+          <a href="index.html#contato" class="btn btn-primary btn-lg">Quero Implementar Agora</a>
+          <a href="index.html#simulador" class="btn btn-ghost">Calcular Meu ROI Primeiro</a>
+        </div>
+      </div>
+      <p class="lp-pricing-guarantee">
+        <span class="lp-guarantee-icon">&#10003;</span>
+        Resultado garantido ou devolvemos seu investimento
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="lp-section lp-faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Perguntas Frequentes</span>
+        <h2> ainda tem duvidas?</h2>
+      </div>
+      <div class="lp-faq-list">
+        <details class="lp-faq-item">
+          <summary>Quanto tempo demora para implementar?</summary>
+          <p>Apos a assinatura do contrato e acesso as informacoes necessarias, a implantacao leva entre 7 e 15 dias uteis. Isso inclui configuracao, integracao e treinamento da equipe.</p>
+        </details>
+        <details class="lp-faq-item">
+          <summary>Preciso trocar de sistema de gestao?</summary>
+          <p>Nao necessariamente. O Asaas funciona de forma independente ou integrado ao seu ERP atual. Verificamos a melhor opcao no diagnostico gratuito.</p>
+        </details>
+        <details class="lp-faq-item">
+          <summary>Meus clientes vao achar estranho receber mensagens automaticas?</summary>
+          <p>Pelo contrario. A maioria dos clientes agradece receber lembretes. As mensagens sao educadas e personalizadas com sua marca, nao parecem robos.</p>
+        </details>
+        <details class="lp-faq-item">
+          <summary>E se eu ja uso o Asaas sozinho?</summary>
+          <p>Podemos auditar sua configuracao atual e implementar a regua de cobranca e automatizacoes que voce nao esta usando. Muitos clientes ja tinham Asaas mas nao conseguiam resultado.</p>
+        </details>
+        <details class="lp-faq-item">
+          <summary>A automacao funciona para servicos pontuais ou so mensalidades?</summary>
+          <p>Funciona para os dois. Cobrancas avulsas, contratos com parcelas e assinaturas recorrentes. Cada tipo tem sua configucao ideal.</p>
+        </details>
+        <details class="lp-faq-item">
+          <summary>Quem faz a gestao do dia a dia?</summary>
+          <p>Voce. Nos implementamos, configuramos e treinamos. Depois, voce gerencia tudo pelo painel do Asaas. Claro, oferecemos suporte se precisar.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="lp-section lp-cta">
+    <div class="container">
+      <div class="lp-cta-content">
+        <h2>Pronto para acabar com a inadimplencia?</h2>
+        <p>Agende um diagnostico gratuito de 30 minutos. Vamos analisar sua operacao e mostrar quanto voce pode recuperar ja no primeiro mes.</p>
+        <div class="lp-cta-actions">
+          <a href="index.html#contato" class="btn btn-primary btn-lg">Agendar Diagnostico Gratuito</a>
+          <a href="https://www.asaas.com/parceiros/multilagos" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">Conhecer o Asaas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid footer-grid-simple">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Multilagos" class="footer-logo-img" />
+          </div>
+          <p>Especialistas em automacao de cobrancas e transformacao digital financeira.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Servicos</h5>
+          <ul>
+            <li><a href="asaas.html">Automacao Asaas</a></li>
+            <li><a href="recibo-saude.html">Recibo Saude</a></li>
+            <li><a href="solucoes.html">Outras Solucoes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="quem-somos.html">Quem Somos</a></li>
+            <li><a href="parceiros.html">Parceiros</a></li>
+            <li><a href="index.html#cases">Cases</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contato</h5>
+          <ul>
+            <li><a href="index.html#contato">Agendar Reuniao</a></li>
+            <li><a href="index.html#simulador">Simulador ROI</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Multilagos | Negocios e Tecnologia. Todos os direitos reservados.</p>
+        <p>Transformacao digital que gera resultado real.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20automa%C3%A7%C3%A3o%20de%20cobran%C3%A7as%20com%20Asaas." class="fab-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003c-5.514 0-9.997 4.48-9.997 9.997 0 1.763.463 3.414 1.269 4.847L2 22l5.294-1.242c1.38.752 2.963 1.188 4.71 1.188 5.514 0 9.997-4.48 9.997-9.997S17.518 2.003 12.004 2.003zm0 18.214c-1.608 0-3.107-.463-4.366-1.263l-.313-.185-3.142.737.752-3.059-.204-.324C3.9 15.19 3.467 13.643 3.467 12c0-4.71 3.832-8.543 8.537-8.543 4.706 0 8.538 3.833 8.538 8.543 0 4.711-3.832 8.214-8.538 8.217z"/></svg>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+</html>
