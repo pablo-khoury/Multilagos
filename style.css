@@ -1620,10 +1620,10 @@ em { font-style: normal; color: var(--red); }
 /* =============================================
    NAV LOGO — image support
    ============================================= */
-.nav-logo { display: flex; align-items: center; gap: 50px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; }
 
 .nav-logo-img {
-  height: 75px;
+  height: 36px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -1639,7 +1639,7 @@ em { font-style: normal; color: var(--red); }
 }
 
 .footer-logo-img {
-  height: 75px;
+  height: 40px;
   width: auto;
   object-fit: contain;
 }
@@ -2472,7 +2472,7 @@ em { font-style: normal; color: var(--red); }
 /* =============================================
    FOOTER — Asaas + 5-column grid
    ============================================= */
-/*.footer-asaas {
+.footer-asaas {
   display: grid;
   grid-template-columns: 160px 1fr auto;
   gap: 24px;
@@ -2543,8 +2543,7 @@ em { font-style: normal; color: var(--red); }
 .footer-grid {
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
 }
-*/
-   
+
 /* =============================================
    RESPONSIVE — new sections
    ============================================= */
@@ -3738,6 +3737,7 @@ em { font-style: normal; color: var(--red); }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  align-items: stretch;
 }
 
 .partner-list-card {
@@ -3745,6 +3745,8 @@ em { font-style: normal; color: var(--red); }
   border: 1.5px solid var(--light);
   border-radius: var(--radius);
   transition: box-shadow .25s, transform .25s;
+  display: flex;
+  flex-direction: column;
 }
 
 .partner-list-link {
@@ -3753,6 +3755,8 @@ em { font-style: normal; color: var(--red); }
   padding: 20px;
   text-decoration: none;
   color: inherit;
+  flex: 1;
+  align-items: flex-start;
 }
 
 .partner-list-card:hover {
@@ -3787,6 +3791,13 @@ em { font-style: normal; color: var(--red); }
   font-weight: 800;
   color: var(--dark);
   display: none;
+}
+
+.partner-list-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .partner-list-content h4 {
@@ -3837,6 +3848,7 @@ em { font-style: normal; color: var(--red); }
   .partner-featured-logo { margin: 0 auto; max-width: 200px; }
   .partner-featured-features { text-align: left; }
   .partners-list-grid { grid-template-columns: repeat(2, 1fr); }
+  .partner-list-card:only-child { grid-column: 1 / -1; max-width: 50%; margin: 0 auto; }
   .about-team-full { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -3844,6 +3856,7 @@ em { font-style: normal; color: var(--red); }
   .solutions-process-grid { grid-template-columns: 1fr; }
   .partner-featured-features { grid-template-columns: 1fr; }
   .partners-list-grid { grid-template-columns: 1fr; }
+  .partner-list-card:only-child { max-width: 100%; }
   .about-team-full { grid-template-columns: 1fr; }
   .solutions-highlights { margin-top: 0; padding-top: 60px; }
 }
