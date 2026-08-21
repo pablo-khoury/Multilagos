@@ -13,16 +13,6 @@ export interface PlanItem {
   ctaText: string;
 }
 
-export interface SolutionItem {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  iconName: string;
-  highlights: string[];
-  badge?: string;
-}
-
 export interface PainPointItem {
   id: string;
   title: string;
@@ -62,16 +52,6 @@ export interface FaqItem {
   question: string;
   answer: string;
   category?: string;
-}
-
-export interface ServiceAvulsoItem {
-  id: string;
-  title: string;
-  badge: string;
-  description: string;
-  deliverables: string[];
-  timeline: string;
-  ctaText: string;
 }
 
 export interface SiteConfig {

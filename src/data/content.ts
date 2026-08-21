@@ -1,4 +1,4 @@
-import { PlanItem, SolutionItem, PainPointItem, TaxReformFeature, MethodologyStep, TestimonialItem, FaqItem, SiteConfig, ServiceAvulsoItem } from '../types';
+import { PlanItem, PainPointItem, TaxReformFeature, MethodologyStep, TestimonialItem, FaqItem, SiteConfig } from '../types';
 
 export const initialSiteConfig: SiteConfig = {
   companyName: "Multilagos Negócios & Tecnologia",
@@ -60,69 +60,6 @@ export const painPointsData: PainPointItem[] = [
     description: "Risco de bloqueio operacional e exigência futura de emissão síncrona com Split Payment de tributos na liquidação.",
     iconName: "Scale",
     consequence: "Risco de bloqueio e descontrole de margem"
-  }
-];
-
-export const solutionsData: SolutionItem[] = [
-  {
-    id: "nf-automation",
-    title: "Automação Completa de Notas Fiscais",
-    subtitle: "Emissão, cancelamento e envio de NFS-e sem intervenção humana",
-    description: "Configuramos a emissão automática de notas fiscais de serviço vinculadas diretamente ao pagamento ou ao faturamento do contrato. Seu cliente recebe a nota e a fatura no mesmo instante.",
-    iconName: "FileCheck",
-    badge: "Zero Digitação Manual",
-    highlights: [
-      "Disparo automático da NFS-e assim que o Pix, boleto ou cartão for compensado",
-      "Envio sincronizado do link da nota e XML para o e-mail e WhatsApp do tomador do serviço",
-      "Cancelamento automático em caso de estorno ou renegociação de contrato",
-      "Parametrização precisa de alíquotas municipais, ISS retido e regimes tributários",
-      "Economia imediata de até 20 horas mensais da sua equipe financeira"
-    ]
-  },
-  {
-    id: "smart-regua-ia",
-    title: "Régua Inteligente & Agente de IA para Cobrança",
-    subtitle: "Lembretes preventivos e negociação empática no WhatsApp",
-    description: "Implementamos réguas multicanal antes, no dia e pós-vencimento via WhatsApp, E-mail e SMS, integradas a um assistente inteligente treinado para negociar débitos com cordialidade e precisão.",
-    iconName: "Bot",
-    badge: "Recuperação de até 68%",
-    highlights: [
-      "Avisos preventivos 5, 3 e 1 dia antes do vencimento com link Pix dinâmico",
-      "Agente de IA no WhatsApp oficial da sua empresa que atende o cliente 24/7",
-      "Negociação orientada pelas regras de juros, multas e parcelamentos da sua diretoria",
-      "Geração instantânea de Pix Copia e Cola durante a conversa de negociação",
-      "Preservação total do relacionamento comercial com abordagem cordial e profissional"
-    ]
-  },
-  {
-    id: "recurrence-split",
-    title: "Gestão de Recorrência & Split Financeiro",
-    subtitle: "Contratos, assinaturas e divisão automática de honorários",
-    description: "Estruturação de cobrança recorrente no cartão de crédito sem comprometer o limite total do cliente, Pix Programado e divisão automática (Split) entre prestadores, parceiros e sócios.",
-    iconName: "Repeat",
-    badge: "Receita Previsível",
-    highlights: [
-      "Cobrança recorrente no cartão sem bloquear o limite do cliente (Recorrência Real)",
-      "Boleto com Pix Dinâmico e baixa em tempo real",
-      "Divisão automatizada de comissões e repasses de prestadores no momento do recebimento",
-      "Retentativas inteligentes em caso de falha de cobrança no cartão de crédito",
-      "Portal do cliente para 2ª via e troca de forma de pagamento"
-    ]
-  },
-  {
-    id: "end-to-end-integration",
-    title: "Integração Fim a Fim (APIs & ERP)",
-    subtitle: "Conecte CRM, meios de pagamento e software de gestão",
-    description: "Arquitetura e sincronização de dados entre seu CRM de vendas, formulários de onboarding, ERP e meios de pagamento automáticos. Quando um contrato é fechado, tudo acontece sozinho.",
-    iconName: "Workflow",
-    badge: "Fluxo 100% Integrado",
-    highlights: [
-      "Criação automática de clientes e contratos no ERP após a assinatura",
-      "Baixa bancária e conciliação em tempo real sem importar arquivos de retorno",
-      "Integrações via Webhooks com Omie, Conta Azul, Bling, Tiny, ClickUp, Trello e Make",
-      "Disparo de notificações internas no Slack/WhatsApp para a equipe de atendimento",
-      "Fechamento contábil e conciliação financeira em 1 clique"
-    ]
   }
 ];
 
@@ -286,72 +223,6 @@ export const pricingPlans: PlanItem[] = [
     whatsappMessage: "Olá Pablo! Gostaria de consultar um Projeto Personalizado (Enterprise/PMO) para minha empresa.",
     ctaText: "Consultar Escopo Personalizado"
   }
-];
-
-export const servicesAvulsosData: ServiceAvulsoItem[] = [
-  {
-    id: "migracao-base",
-    title: "Migração & Higienização de Base de Clientes",
-    badge: "Setup Rápido",
-    description: "Estruturação, limpeza cadastral e importação segura de contratos e dados de clientes de planilhas ou sistemas antigos para o gateway ou ERP.",
-    deliverables: [
-      "Higienização de CPFs/CNPJs e dados de contato",
-      "Importação em lote de contratos e mensalidades ativas",
-      "Validação de dados fiscais para emissão de NFS-e sem erros"
-    ],
-    timeline: "2 a 4 dias úteis",
-    ctaText: "Contratar Migração"
-  },
-  {
-    id: "homologacao-nfse",
-    title: "Homologação & Parametrização de NFS-e Municipal",
-    badge: "Fiscal & Tributário",
-    description: "Configuração e homologação do certificado digital (A1), códigos de serviço municipal, alíquotas de ISS e retenções para emissão 100% automática.",
-    deliverables: [
-      "Instalação e validação do Certificado Digital A1",
-      "Parametrização de CNAE, códigos de tributação e alíquotas municipais",
-      "Testes em ambiente de homologação e produção com a prefeitura"
-    ],
-    timeline: "3 a 5 dias úteis",
-    ctaText: "Homologar NFS-e"
-  },
-  {
-    id: "recuperacao-passivo",
-    title: "Campanha Emergencial de Recuperação de Inadimplência",
-    badge: "Recuperação de Caixa",
-    description: "Estruturação de régua emergencial com condições especiais, links Pix dinâmicos e disparo assistido para recuperar valores vencidos há mais de 30 dias.",
-    deliverables: [
-      "Estratégia de descontos progressivos e parcelamentos no Pix/Cartão",
-      "Disparo multicanal (WhatsApp Oficial + E-mail + SMS)",
-      "Dashboard de acompanhamento em tempo real de valores recuperados"
-    ],
-    timeline: "3 a 7 dias úteis",
-    ctaText: "Recuperar Caixa Vencido"
-  },
-  {
-    id: "treinamento-equipe",
-    title: "Treinamento VIP & Capacitação da Equipe Financeira",
-    badge: "Capacitação & PMO",
-    description: "Sessão prática gravada e documentação passo a passo para que seu time financeiro opere o novo ecossistema com máxima eficiência e sem dúvidas.",
-    deliverables: [
-      "Workshop online ao vivo de 2 horas com simulações reais",
-      "Manual de Procedimento Operacional Padrão (POP) em PDF",
-      "Gravação completa em alta definição para onboarding de novos membros"
-    ],
-    timeline: "1 dia útil",
-    ctaText: "Agendar Treinamento"
-  }
-];
-
-export const integrationsList = [
-  { name: "Asaas", category: "Gateway & NFS-e Oficial", highlight: "Parceiro Oficial • Emissão Automática de NFS-e" },
-  { name: "Omie", category: "ERP de Gestão", highlight: "Sincronização de Contratos & Baixa Automática" },
-  { name: "Conta Azul", category: "ERP Financeiro", highlight: "Conciliação Bancária em Tempo Real" },
-  { name: "WhatsApp Cloud API", category: "Comunicação Oficial", highlight: "Régua Inteligente & Agente de IA 24/7" },
-  { name: "Make / n8n", category: "Automação & Webhooks", highlight: "Fluxos de Dados e Triggers Personalizados" },
-  { name: "Trello & ClickUp", category: "Gestão Operacional", highlight: "Criação de Cards de Onboarding de Clientes" },
-  { name: "Google Sheets", category: "Relatórios & BI", highlight: "Dashboards e Fechamento em Tempo Real" },
-  { name: "HubSpot & RD Station", category: "CRM de Vendas", highlight: "Geração Automática de Contrato pós-venda" }
 ];
 
 export const testimonialsData: TestimonialItem[] = [
