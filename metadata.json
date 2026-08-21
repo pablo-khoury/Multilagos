@@ -1,0 +1,6 @@
+{
+  "name": "Multilagos - Automação Financeira & Tecnologia",
+  "description": "Landing Page de Alta Conversão B2B para Automação Financeira Asaas, Integrações ERP, Agentes de IA e Reforma Tributária por Pablo Khoury.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

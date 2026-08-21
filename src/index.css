@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #111F24;
+    color: #E0E0E0;
+  }
+
+  /* Clean subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111F24;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1B2A32;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #BDC3C7;
+  }
+}
+
+/* Subtle architectural grid pattern */
+.bg-grid-pattern {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(189, 195, 199, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(189, 195, 199, 0.04) 1px, transparent 1px);
+}
+
+/* Executive subtle border & card styling */
+.card-executive {
+  background-color: #16242B;
+  border: 1px solid rgba(189, 195, 199, 0.12);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-executive:hover {
+  border-color: rgba(212, 11, 58, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+
