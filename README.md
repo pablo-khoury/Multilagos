@@ -1,20 +1,23 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Site Multilagos
 
-# Run and deploy your AI Studio app
+Site estático de implantação Asaas e Multicobrança.
 
-This contains everything you need to run your app locally.
+## Arquivos
+- `dist/index.html`: página principal.
+- `dist/parceiros.html`: Programa de Parceiros.
+- `dist/assets/`: logos e imagens dos cases.
 
-View your app in AI Studio: https://ai.studio/apps/f723b158-e4ae-4220-ae8c-e5591b27a682
+## Visualizar localmente
+Na pasta do projeto, execute `python -m http.server 8000 --directory dist` e abra http://localhost:8000.
 
-## Run Locally
+## Publicação
+Não há etapa de instalação ou compilação. Configure a hospedagem para servir a pasta `dist`. No GitHub Pages via branch, publique o conteúdo de `dist` na raiz da branch de publicação, com o site configurado em domínio próprio ou na raiz de um domínio. Os links internos usam caminhos absolutos como `/parceiros.html`; para hospedar em um subdiretório do tipo usuario.github.io/repositorio/, ajuste esses caminhos para o prefixo do repositório ou utilize domínio próprio.
 
-**Prerequisites:**  Node.js
+## Contatos e configurações
+- WhatsApp: 5522999020466
+- Indicação Asaas: https://www.asaas.com/parceiros/multilagos
+- Instagram: @pablokhoury.oficial e @multilagos
 
+O formulário abre uma mensagem no WhatsApp; não há banco de dados ou envio automático pelo site. Fontes são carregadas pelo Google Fonts, com alternativas locais de sistema.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Este pacote contém os arquivos do site e não inclui credenciais, histórico Git ou configurações privadas da hospedagem anterior.
